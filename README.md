@@ -1,4 +1,4 @@
-# Academic Evidence Finder
+# 南开大学-信息检索系统原理-HW3 Academic Evidence Finder
 
 面向 IR/RAG 研究入门者的轻量学术论文检索与证据展示 demo。系统使用本地小规模论文语料，提供关键词检索、语义近似检索、混合排序、主题/年份筛选、证据片段高亮、论文详情和相似论文推荐。
 
