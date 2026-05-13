@@ -1,0 +1,602 @@
+[
+  {
+    "id": "brin-1998-google",
+    "title": "The Anatomy of a Large-Scale Hypertextual Web Search Engine",
+    "authors": ["Sergey Brin", "Lawrence Page"],
+    "year": 1998,
+    "venue": "WWW",
+    "topics": ["Web Search", "Ranking", "Link Analysis"],
+    "url": "https://research.google/pubs/the-anatomy-of-a-large-scale-hypertextual-web-search-engine/",
+    "abstract": "The paper describes Google, a web search engine that combines text retrieval with link analysis through PageRank.",
+    "chunks": [
+      "Web search requires scalable crawling, indexing, ranking, and result presentation.",
+      "PageRank uses the link structure of the web as a signal of page importance.",
+      "The system illustrates how retrieval quality depends on both text matching and authority signals."
+    ]
+  },
+  {
+    "id": "burges-2005-ranknet",
+    "title": "Learning to Rank using Gradient Descent",
+    "authors": ["Chris Burges", "Tal Shaked", "Erin Renshaw"],
+    "year": 2005,
+    "venue": "ICML",
+    "topics": ["Learning to Rank", "Ranking", "Neural Ranking"],
+    "url": "https://icml.cc/Conferences/2005/proceedings/papers/081_Learning_Burges.pdf",
+    "abstract": "RankNet formulates ranking as pairwise preference learning and trains a neural model with gradient descent.",
+    "chunks": [
+      "Learning-to-rank methods optimize ordering rather than independent document labels.",
+      "Pairwise losses compare two documents for a query and learn which one should rank higher.",
+      "The idea is foundational for later neural ranking and reranking systems."
+    ]
+  },
+  {
+    "id": "burges-2010-lambdamart",
+    "title": "From RankNet to LambdaRank to LambdaMART: An Overview",
+    "authors": ["Chris Burges"],
+    "year": 2010,
+    "venue": "Microsoft Research Technical Report",
+    "topics": ["Learning to Rank", "Ranking", "Evaluation"],
+    "url": "https://www.microsoft.com/en-us/research/publication/from-ranknet-to-lambdarank-to-lambdamart-an-overview/",
+    "abstract": "The overview explains the development of LambdaRank and LambdaMART for optimizing ranking metrics in information retrieval.",
+    "chunks": [
+      "LambdaMART became a strong learning-to-rank baseline for web search and ad hoc retrieval.",
+      "The method uses gradient boosted trees with lambda gradients related to ranking metrics.",
+      "It shows the importance of optimizing retrieval metrics such as NDCG directly."
+    ]
+  },
+  {
+    "id": "liu-2009-learning-to-rank",
+    "title": "Learning to Rank for Information Retrieval",
+    "authors": ["Tie-Yan Liu"],
+    "year": 2009,
+    "venue": "Foundations and Trends in Information Retrieval",
+    "topics": ["Learning to Rank", "Survey", "Ranking"],
+    "url": "https://www.microsoft.com/en-us/research/publication/learning-to-rank-for-information-retrieval/",
+    "abstract": "This survey organizes pointwise, pairwise, and listwise learning-to-rank approaches for information retrieval.",
+    "chunks": [
+      "Learning to rank uses training data to combine relevance features into an ordering function.",
+      "Pointwise, pairwise, and listwise objectives make different assumptions about ranking supervision.",
+      "The survey provides background for reranking stages in modern search pipelines."
+    ]
+  },
+  {
+    "id": "qin-2010-letor",
+    "title": "LETOR: A Benchmark Collection for Research on Learning to Rank for Information Retrieval",
+    "authors": ["Tao Qin", "Tie-Yan Liu", "Jun Xu"],
+    "year": 2010,
+    "venue": "Information Retrieval",
+    "topics": ["Learning to Rank", "Benchmark", "Evaluation"],
+    "url": "https://www.microsoft.com/en-us/research/publication/letor-a-benchmark-collection-for-research-on-learning-to-rank-for-information-retrieval/",
+    "abstract": "LETOR provides benchmark datasets, features, and evaluation tools for learning-to-rank research.",
+    "chunks": [
+      "Benchmark collections make ranking methods comparable and reproducible.",
+      "LETOR includes query-document features and relevance labels for learning-to-rank experiments.",
+      "A course demo can follow this idea by preparing fixed queries and relevance judgments."
+    ]
+  },
+  {
+    "id": "nogueira-2019-bert-reranking",
+    "title": "Passage Re-ranking with BERT",
+    "authors": ["Rodrigo Nogueira", "Kyunghyun Cho"],
+    "year": 2019,
+    "venue": "arXiv",
+    "topics": ["Reranking", "Transformer", "Ranking"],
+    "url": "https://arxiv.org/abs/1901.04085",
+    "abstract": "The paper applies BERT as a cross-encoder reranker for passage retrieval, improving relevance after first-stage retrieval.",
+    "chunks": [
+      "A BERT reranker jointly encodes the query and passage to estimate relevance.",
+      "Cross-encoder reranking is accurate but expensive, so it usually follows BM25 or dense retrieval.",
+      "This multi-stage design is central to neural information retrieval systems."
+    ]
+  },
+  {
+    "id": "dai-2019-deepct",
+    "title": "Context-Aware Sentence/Passage Term Importance Estimation for First Stage Retrieval",
+    "authors": ["Zhuyun Dai", "Jamie Callan"],
+    "year": 2019,
+    "venue": "arXiv",
+    "topics": ["Sparse Retrieval", "Term Weighting", "First-stage Retrieval"],
+    "url": "https://arxiv.org/abs/1910.10687",
+    "abstract": "DeepCT uses contextualized language models to estimate term importance for sparse first-stage retrieval.",
+    "chunks": [
+      "Neural term weighting keeps the efficiency and interpretability of sparse indexes.",
+      "DeepCT predicts which document terms should receive higher retrieval weights.",
+      "The method bridges lexical retrieval and neural representations."
+    ]
+  },
+  {
+    "id": "xiong-2021-ance",
+    "title": "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval",
+    "authors": ["Lee Xiong", "Chenyan Xiong", "Ye Li", "Kenton Lee"],
+    "year": 2021,
+    "venue": "ICLR",
+    "topics": ["Dense Retrieval", "Negative Mining", "Embedding"],
+    "url": "https://arxiv.org/abs/2007.00808",
+    "abstract": "ANCE trains dense retrievers using hard negatives mined from an approximate nearest-neighbor index.",
+    "chunks": [
+      "Hard negative mining is crucial for dense retriever training.",
+      "ANCE refreshes negatives from the evolving retrieval index during training.",
+      "The method improves dense passage retrieval for open-domain search."
+    ]
+  },
+  {
+    "id": "gao-2021-coil",
+    "title": "COIL: Revisit Exact Lexical Match in Information Retrieval with Contextualized Inverted List",
+    "authors": ["Luyu Gao", "Zhuyun Dai", "Jamie Callan"],
+    "year": 2021,
+    "venue": "NAACL",
+    "topics": ["Sparse Retrieval", "Late Interaction", "Indexing"],
+    "url": "https://arxiv.org/abs/2104.07186",
+    "abstract": "COIL combines exact lexical matching with contextualized token representations in an inverted-list retrieval architecture.",
+    "chunks": [
+      "COIL keeps lexical matching while representing terms with contextual embeddings.",
+      "The design supports efficient inverted-list retrieval with neural matching.",
+      "It is related to late-interaction retrieval but emphasizes exact term alignment."
+    ]
+  },
+  {
+    "id": "lin-2021-unicoil",
+    "title": "A Few Brief Notes on DeepImpact, COIL, and a Conceptual Framework for Information Retrieval Techniques",
+    "authors": ["Jimmy Lin", "Xueguang Ma"],
+    "year": 2021,
+    "venue": "arXiv",
+    "topics": ["Sparse Retrieval", "Term Weighting", "Indexing"],
+    "url": "https://arxiv.org/abs/2106.14807",
+    "abstract": "The note discusses learned sparse retrieval methods and a framework for understanding term expansion and weighting.",
+    "chunks": [
+      "Learned sparse retrieval can assign neural weights to lexical terms while preserving inverted index efficiency.",
+      "The framework separates term expansion, term weighting, and interaction patterns.",
+      "Such methods explain why sparse retrieval remains important in RAG pipelines."
+    ]
+  },
+  {
+    "id": "formal-2021-splade",
+    "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+    "authors": ["Thibault Formal", "Benjamin Piwowarski", "Stéphane Clinchant"],
+    "year": 2021,
+    "venue": "SIGIR",
+    "topics": ["Sparse Retrieval", "Query Expansion", "First-stage Retrieval"],
+    "url": "https://arxiv.org/abs/2107.05720",
+    "abstract": "SPLADE learns sparse lexical representations with expansion terms, balancing inverted-index efficiency and neural retrieval effectiveness.",
+    "chunks": [
+      "SPLADE generates sparse term weights for documents and queries.",
+      "Learned expansion helps sparse retrieval address vocabulary mismatch.",
+      "The model is a strong example of neural sparse first-stage retrieval."
+    ]
+  },
+  {
+    "id": "santhanam-2022-colbertv2",
+    "title": "ColBERTv2: Efficient and Effective Retrieval via Lightweight Late Interaction",
+    "authors": ["Keshav Santhanam", "Omar Khattab", "Jon Saad-Falcon"],
+    "year": 2022,
+    "venue": "NAACL",
+    "topics": ["Late Interaction", "Dense Retrieval", "Efficiency"],
+    "url": "https://arxiv.org/abs/2112.01488",
+    "abstract": "ColBERTv2 improves late-interaction retrieval through residual compression and denoised supervision.",
+    "chunks": [
+      "ColBERTv2 reduces the storage cost of token-level dense retrieval.",
+      "Late interaction keeps fine-grained matching signals while improving efficiency.",
+      "The method is relevant for retrieval systems that need both accuracy and responsiveness."
+    ]
+  },
+  {
+    "id": "izacard-2021-contriever",
+    "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+    "authors": ["Gautier Izacard", "Mathilde Caron", "Lucas Hosseini"],
+    "year": 2021,
+    "venue": "arXiv",
+    "topics": ["Dense Retrieval", "Contrastive Learning", "Zero-shot"],
+    "url": "https://arxiv.org/abs/2112.09118",
+    "abstract": "Contriever trains dense retrieval models with unsupervised contrastive learning and transfers well across retrieval tasks.",
+    "chunks": [
+      "Unsupervised dense retrievers reduce reliance on labeled question-passage pairs.",
+      "Contrastive learning encourages semantically related texts to have nearby embeddings.",
+      "Contriever is often used as a zero-shot dense retrieval baseline."
+    ]
+  },
+  {
+    "id": "ni-2021-gtr",
+    "title": "Large Dual Encoders Are Generalizable Retrievers",
+    "authors": ["Jianmo Ni", "Chen Qu", "Jing Lu"],
+    "year": 2021,
+    "venue": "arXiv",
+    "topics": ["Dense Retrieval", "Dual Encoder", "Generalization"],
+    "url": "https://arxiv.org/abs/2112.07899",
+    "abstract": "GTR studies large dual encoders for retrieval and shows that scale and training data improve generalization.",
+    "chunks": [
+      "Dual encoders map queries and documents into a shared vector space.",
+      "Large retrieval models can generalize across multiple search tasks.",
+      "The work motivates embedding models as reusable retrieval components."
+    ]
+  },
+  {
+    "id": "wang-2022-e5",
+    "title": "Text Embeddings by Weakly-Supervised Contrastive Pre-training",
+    "authors": ["Liang Wang", "Nan Yang", "Xiaolong Huang", "Binxing Jiao"],
+    "year": 2022,
+    "venue": "arXiv",
+    "topics": ["Embedding", "Dense Retrieval", "Semantic Search"],
+    "url": "https://arxiv.org/abs/2212.03533",
+    "abstract": "E5 trains text embeddings with weakly supervised contrastive pretraining and performs well across BEIR and MTEB tasks.",
+    "chunks": [
+      "E5 provides general-purpose text embeddings for retrieval, clustering, and classification.",
+      "The model performs strongly in zero-shot and fine-tuned retrieval settings.",
+      "It is a practical replacement for TF-IDF semantic scoring in a larger system."
+    ]
+  },
+  {
+    "id": "muennighoff-2022-mteb",
+    "title": "MTEB: Massive Text Embedding Benchmark",
+    "authors": ["Niklas Muennighoff", "Nouamane Tazi", "Loïc Magne"],
+    "year": 2022,
+    "venue": "EACL",
+    "topics": ["Evaluation", "Embedding", "Benchmark"],
+    "url": "https://arxiv.org/abs/2210.07316",
+    "abstract": "MTEB evaluates text embedding models across diverse tasks including retrieval, clustering, classification, and reranking.",
+    "chunks": [
+      "Embedding models should be evaluated beyond a single retrieval dataset.",
+      "MTEB helps compare semantic representations across tasks and domains.",
+      "The benchmark complements BEIR for retrieval-oriented evaluation."
+    ]
+  },
+  {
+    "id": "yang-2017-anserini",
+    "title": "Anserini: Enabling the Use of Lucene for Information Retrieval Research",
+    "authors": ["Peilin Yang", "Hui Fang", "Jimmy Lin"],
+    "year": 2017,
+    "venue": "SIGIR",
+    "topics": ["Tooling", "Evaluation", "Sparse Retrieval"],
+    "url": "https://dl.acm.org/doi/10.1145/3077136.3080721",
+    "abstract": "Anserini provides a reproducible Lucene-based toolkit for information retrieval research.",
+    "chunks": [
+      "Reproducible IR experiments require shared tools, indexes, topics, and evaluation scripts.",
+      "Anserini makes BM25 and other sparse retrieval baselines easy to reproduce.",
+      "The project influenced later Pyserini tooling used in neural IR research."
+    ]
+  },
+  {
+    "id": "lin-2021-pyserini",
+    "title": "Pyserini: A Python Toolkit for Reproducible Information Retrieval Research with Sparse and Dense Representations",
+    "authors": ["Jimmy Lin", "Xueguang Ma", "Sheng-Chieh Lin"],
+    "year": 2021,
+    "venue": "SIGIR",
+    "topics": ["Tooling", "Sparse Retrieval", "Dense Retrieval"],
+    "url": "https://arxiv.org/abs/2102.10073",
+    "abstract": "Pyserini provides Python interfaces for reproducible retrieval experiments with sparse, dense, and hybrid methods.",
+    "chunks": [
+      "Pyserini supports BM25, dense indexes, and hybrid retrieval pipelines.",
+      "The toolkit lowers the barrier for running reproducible retrieval baselines.",
+      "It is a useful reference for turning a course demo into a stronger IR experiment."
+    ]
+  },
+  {
+    "id": "kwiatkowski-2019-nq",
+    "title": "Natural Questions: A Benchmark for Question Answering Research",
+    "authors": ["Tom Kwiatkowski", "Jennimaria Palomaki", "Olivia Redfield"],
+    "year": 2019,
+    "venue": "TACL",
+    "topics": ["Question Answering", "Benchmark", "Evaluation"],
+    "url": "https://aclanthology.org/Q19-1026/",
+    "abstract": "Natural Questions provides real Google queries with Wikipedia answers for open-domain question answering research.",
+    "chunks": [
+      "Open-domain QA benchmarks connect retrieval quality with answer extraction or generation.",
+      "Natural user questions are often underspecified and require robust retrieval.",
+      "The dataset motivated many retriever-reader and RAG systems."
+    ]
+  },
+  {
+    "id": "joshi-2017-triviaqa",
+    "title": "TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension",
+    "authors": ["Mandar Joshi", "Eunsol Choi", "Daniel Weld"],
+    "year": 2017,
+    "venue": "ACL",
+    "topics": ["Question Answering", "Benchmark", "Reading Comprehension"],
+    "url": "https://aclanthology.org/P17-1147/",
+    "abstract": "TriviaQA provides question-answer evidence pairs for reading comprehension and open-domain QA research.",
+    "chunks": [
+      "Question answering systems need both relevant evidence retrieval and accurate reading.",
+      "TriviaQA is widely used to evaluate retriever-reader pipelines.",
+      "The dataset is relevant background for RAG evaluation."
+    ]
+  },
+  {
+    "id": "yang-2018-hotpotqa",
+    "title": "HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering",
+    "authors": ["Zhilin Yang", "Peng Qi", "Saizheng Zhang"],
+    "year": 2018,
+    "venue": "EMNLP",
+    "topics": ["Question Answering", "Multi-hop", "Evaluation"],
+    "url": "https://arxiv.org/abs/1809.09600",
+    "abstract": "HotpotQA evaluates multi-hop question answering with supporting facts, emphasizing explainable evidence.",
+    "chunks": [
+      "Multi-hop QA requires retrieving multiple pieces of evidence.",
+      "Supporting facts make evaluation more explainable than answer-only metrics.",
+      "The dataset motivates RAG systems that expose evidence instead of only producing answers."
+    ]
+  },
+  {
+    "id": "nakano-2021-webgpt",
+    "title": "WebGPT: Browser-assisted Question-answering with Human Feedback",
+    "authors": ["Reiichiro Nakano", "Jacob Hilton", "Suchir Balaji"],
+    "year": 2021,
+    "venue": "arXiv",
+    "topics": ["Web Retrieval", "Question Answering", "Citation"],
+    "url": "https://arxiv.org/abs/2112.09332",
+    "abstract": "WebGPT uses a browser environment and human feedback to answer questions with cited web sources.",
+    "chunks": [
+      "Browser-assisted QA combines retrieval, reading, synthesis, and citation.",
+      "Citations help users inspect the evidence behind an answer.",
+      "The work is related to RAG systems that require traceable sources."
+    ]
+  },
+  {
+    "id": "shi-2023-replug",
+    "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+    "authors": ["Weijia Shi", "Sewon Min", "Maria Lomeli"],
+    "year": 2023,
+    "venue": "arXiv",
+    "topics": ["RAG", "Black-box Models", "Retrieval"],
+    "url": "https://arxiv.org/abs/2301.12652",
+    "abstract": "REPLUG augments black-box language models with retrieved documents without modifying model parameters.",
+    "chunks": [
+      "Retrieval can improve black-box language models through prompt-level context injection.",
+      "The method scores retrieved documents by how they affect language model likelihood.",
+      "It demonstrates modular RAG when the generator cannot be fine-tuned."
+    ]
+  },
+  {
+    "id": "jiang-2023-flare",
+    "title": "Active Retrieval Augmented Generation",
+    "authors": ["Zhengbao Jiang", "Frank Xu", "Luyu Gao"],
+    "year": 2023,
+    "venue": "arXiv",
+    "topics": ["RAG", "Active Retrieval", "Generation"],
+    "url": "https://arxiv.org/abs/2305.06983",
+    "abstract": "FLARE actively retrieves documents during generation when the model anticipates upcoming content that needs support.",
+    "chunks": [
+      "Active retrieval decides when more evidence is needed during generation.",
+      "Forward-looking queries can retrieve information for future parts of an answer.",
+      "The approach highlights retrieval timing as a design choice in RAG."
+    ]
+  },
+  {
+    "id": "trivedi-2023-interleaving",
+    "title": "Interleaving Retrieval with Chain-of-Thought Reasoning for Knowledge-Intensive Multi-Step Questions",
+    "authors": ["Harsh Trivedi", "Niranjan Balasubramanian", "Tushar Khot"],
+    "year": 2023,
+    "venue": "ACL",
+    "topics": ["RAG", "Multi-hop", "Reasoning"],
+    "url": "https://arxiv.org/abs/2212.10509",
+    "abstract": "The paper studies interleaving retrieval with reasoning steps to answer knowledge-intensive multi-step questions.",
+    "chunks": [
+      "Complex questions may require multiple retrieval calls guided by intermediate reasoning.",
+      "Interleaving retrieval and reasoning can improve multi-hop answer accuracy.",
+      "The approach is relevant when single-shot retrieval misses necessary evidence."
+    ]
+  },
+  {
+    "id": "yao-2022-react",
+    "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+    "authors": ["Shunyu Yao", "Jeffrey Zhao", "Dian Yu"],
+    "year": 2022,
+    "venue": "ICLR",
+    "topics": ["Reasoning", "Tool Use", "RAG"],
+    "url": "https://arxiv.org/abs/2210.03629",
+    "abstract": "ReAct interleaves reasoning traces and actions such as search, improving task solving with external tools.",
+    "chunks": [
+      "Reasoning and retrieval actions can be interleaved rather than separated into fixed stages.",
+      "Search actions allow language models to gather external information during problem solving.",
+      "The idea is related to agentic RAG and multi-step retrieval workflows."
+    ]
+  },
+  {
+    "id": "press-2022-self-ask",
+    "title": "Measuring and Narrowing the Compositionality Gap in Language Models",
+    "authors": ["Ofir Press", "Muru Zhang", "Sewon Min"],
+    "year": 2022,
+    "venue": "Findings of EMNLP",
+    "topics": ["Question Answering", "Decomposition", "Retrieval"],
+    "url": "https://arxiv.org/abs/2210.03350",
+    "abstract": "Self-Ask decomposes complex questions into follow-up questions that can be answered with intermediate evidence.",
+    "chunks": [
+      "Question decomposition helps retrieval systems handle compositional information needs.",
+      "Follow-up questions can guide evidence gathering for multi-hop QA.",
+      "This design is useful for advanced RAG systems that need query planning."
+    ]
+  },
+  {
+    "id": "madaan-2023-self-refine",
+    "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+    "authors": ["Aman Madaan", "Niket Tandon", "Prakhar Gupta"],
+    "year": 2023,
+    "venue": "NeurIPS",
+    "topics": ["Generation", "Verification", "RAG"],
+    "url": "https://arxiv.org/abs/2303.17651",
+    "abstract": "Self-Refine uses feedback and revision loops to improve language model outputs without additional training.",
+    "chunks": [
+      "Iterative refinement can improve generated answers after initial retrieval and synthesis.",
+      "Feedback loops are related to RAG systems that critique evidence support.",
+      "The method motivates answer revision after evidence inspection."
+    ]
+  },
+  {
+    "id": "es-2023-ragas",
+    "title": "RAGAS: Automated Evaluation of Retrieval Augmented Generation",
+    "authors": ["Shahul Es", "Jithin James", "Luis Espinosa-Anke"],
+    "year": 2023,
+    "venue": "EACL",
+    "topics": ["Evaluation", "RAG", "Faithfulness"],
+    "url": "https://arxiv.org/abs/2309.15217",
+    "abstract": "RAGAS proposes reference-free metrics for evaluating retrieval-augmented generation, including faithfulness and context relevance.",
+    "chunks": [
+      "RAG evaluation should measure both retrieval context quality and answer faithfulness.",
+      "Reference-free evaluation helps when gold answers are unavailable.",
+      "The framework is useful background for explaining RAG quality metrics."
+    ]
+  },
+  {
+    "id": "yan-2024-crag",
+    "title": "Corrective Retrieval Augmented Generation",
+    "authors": ["Shi-Qi Yan", "Jia-Chen Gu", "Yun Zhu", "Zhen-Hua Ling"],
+    "year": 2024,
+    "venue": "arXiv",
+    "topics": ["RAG", "Hallucination", "Verification"],
+    "url": "https://arxiv.org/abs/2401.15884",
+    "abstract": "Corrective RAG evaluates retrieval quality and triggers corrective retrieval or refinement actions when retrieved documents are unreliable.",
+    "chunks": [
+      "CRAG introduces a lightweight evaluator to judge whether retrieved evidence is correct, incorrect, or ambiguous.",
+      "Corrective retrieval is designed for cases where standard RAG retrieves noisy or insufficient documents.",
+      "The framework improves robustness by combining retrieval evaluation, web search, and knowledge refinement."
+    ]
+  },
+  {
+    "id": "sarthi-2024-raptor",
+    "title": "RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval",
+    "authors": ["Parth Sarthi", "Salman Abdullah", "Aditi Tuli", "Christopher D. Manning"],
+    "year": 2024,
+    "venue": "arXiv",
+    "topics": ["RAG", "Hierarchical Retrieval", "Long Context"],
+    "url": "https://arxiv.org/abs/2401.18059",
+    "abstract": "RAPTOR builds a tree of recursively clustered and summarized chunks so retrieval can access information at multiple abstraction levels.",
+    "chunks": [
+      "Standard RAG often retrieves short contiguous chunks and can miss document-level structure.",
+      "RAPTOR embeds, clusters, and summarizes chunks into a tree for hierarchical retrieval.",
+      "Tree-organized retrieval helps answer questions requiring broader document context."
+    ]
+  },
+  {
+    "id": "jeong-2024-adaptive-rag",
+    "title": "Adaptive-RAG: Learning to Adapt Retrieval-Augmented Large Language Models through Question Complexity",
+    "authors": ["Soyeong Jeong", "Jinheon Baek", "Sukmin Cho", "Sung Ju Hwang"],
+    "year": 2024,
+    "venue": "NAACL",
+    "topics": ["RAG", "Adaptive Retrieval", "Question Answering"],
+    "url": "https://arxiv.org/abs/2403.14403",
+    "abstract": "Adaptive-RAG selects retrieval and generation strategies based on estimated question complexity.",
+    "chunks": [
+      "Not every question needs the same retrieval strategy or computational budget.",
+      "Adaptive-RAG routes simple and complex questions to different retrieval workflows.",
+      "The design improves efficiency by avoiding unnecessary retrieval for simpler queries."
+    ]
+  },
+  {
+    "id": "edge-2024-graphrag",
+    "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+    "authors": ["Darren Edge", "Ha Trinh", "Newman Cheng", "Jonathan Larson"],
+    "year": 2024,
+    "venue": "arXiv",
+    "topics": ["RAG", "Graph Retrieval", "Summarization"],
+    "url": "https://arxiv.org/abs/2404.16130",
+    "abstract": "GraphRAG builds an entity graph and community summaries to answer global questions over large private corpora.",
+    "chunks": [
+      "Conventional RAG can struggle with global questions about an entire corpus.",
+      "GraphRAG indexes entities and communities before summarizing partial responses.",
+      "The method improves query-focused summarization for large private text collections."
+    ]
+  },
+  {
+    "id": "chen-2024-cache-augmented",
+    "title": "Cache-Augmented Generation: A Foundation Model with Long-term Memory",
+    "authors": ["Ziru Chen", "Shijie Chen", "Yufan Zhou"],
+    "year": 2024,
+    "venue": "arXiv",
+    "topics": ["RAG", "Memory", "Efficiency"],
+    "url": "https://arxiv.org/abs/2312.15605",
+    "abstract": "Cache-augmented generation explores using cached key-value memories to support long-term information access for generation.",
+    "chunks": [
+      "Memory mechanisms are an alternative to repeatedly retrieving the same context.",
+      "Caching can improve efficiency when users repeatedly query related documents.",
+      "The idea connects RAG with long-term memory and reusable context."
+    ]
+  },
+  {
+    "id": "chen-2024-blink",
+    "title": "Benchmarking Large Language Models in Retrieval-Augmented Generation",
+    "authors": ["Jiawei Chen", "Hongyu Lin", "Xianpei Han"],
+    "year": 2024,
+    "venue": "arXiv",
+    "topics": ["Evaluation", "RAG", "Benchmark"],
+    "url": "https://arxiv.org/abs/2401.05856",
+    "abstract": "The benchmark studies retrieval-augmented generation abilities of large language models across multiple knowledge-intensive tasks.",
+    "chunks": [
+      "RAG benchmarks evaluate how well a system uses retrieved evidence in generation.",
+      "Different tasks stress retrieval relevance, answer grounding, and robustness.",
+      "Benchmarking helps identify failure modes beyond simple retrieval accuracy."
+    ]
+  },
+  {
+    "id": "li-2024-multihop-rag",
+    "title": "MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries",
+    "authors": ["Yixuan Li", "Xiaoqing Zheng", "Kai Wang"],
+    "year": 2024,
+    "venue": "arXiv",
+    "topics": ["RAG", "Multi-hop", "Benchmark"],
+    "url": "https://arxiv.org/abs/2401.15391",
+    "abstract": "MultiHop-RAG evaluates retrieval-augmented generation systems on questions requiring evidence from multiple documents.",
+    "chunks": [
+      "Multi-hop RAG requires retrieving and combining several pieces of evidence.",
+      "Single-passage retrieval is often insufficient for complex information needs.",
+      "The benchmark motivates query decomposition and iterative retrieval."
+    ]
+  },
+  {
+    "id": "chen-2024-rq-rag",
+    "title": "RQ-RAG: Learning to Refine Queries for Retrieval Augmented Generation",
+    "authors": ["Jiawei Chen", "Hongyu Lin", "Xianpei Han"],
+    "year": 2024,
+    "venue": "arXiv",
+    "topics": ["RAG", "Query Rewriting", "Query Expansion"],
+    "url": "https://arxiv.org/abs/2404.00610",
+    "abstract": "RQ-RAG studies query refinement for retrieval-augmented generation, improving retrieval quality through better search queries.",
+    "chunks": [
+      "Query refinement turns underspecified user questions into retrieval-friendly queries.",
+      "Better rewritten queries can improve recall and evidence relevance.",
+      "The method is directly related to lightweight Chinese-English query expansion in this demo."
+    ]
+  },
+  {
+    "id": "ma-2024-corpus-steering",
+    "title": "Corpus-Steered Query Expansion with Large Language Models",
+    "authors": ["Xueguang Ma", "Liang Wang", "Jimmy Lin"],
+    "year": 2024,
+    "venue": "arXiv",
+    "topics": ["Query Expansion", "RAG", "Sparse Retrieval"],
+    "url": "https://arxiv.org/abs/2402.18031",
+    "abstract": "Corpus-steered query expansion uses corpus information to produce expansion terms that improve retrieval.",
+    "chunks": [
+      "Expansion terms should be grounded in the target corpus instead of being generic.",
+      "Corpus-aware expansion can improve retrieval precision and recall.",
+      "The idea motivates using topic labels and field evidence to guide query expansion."
+    ]
+  },
+  {
+    "id": "li-2023-bge",
+    "title": "C-Pack: Packaged Resources To Advance General Chinese Embedding",
+    "authors": ["Shitao Xiao", "Zheng Liu", "Peitian Zhang"],
+    "year": 2023,
+    "venue": "arXiv",
+    "topics": ["Embedding", "Dense Retrieval", "Chinese Retrieval"],
+    "url": "https://arxiv.org/abs/2309.07597",
+    "abstract": "BGE provides general embedding models and resources for retrieval, including strong multilingual and Chinese representations.",
+    "chunks": [
+      "Chinese retrieval benefits from embedding models trained with multilingual and Chinese data.",
+      "BGE-style embeddings can replace TF-IDF cosine in a stronger version of this demo.",
+      "The work is relevant for bilingual academic search interfaces."
+    ]
+  },
+  {
+    "id": "chen-2024-bge-m3",
+    "title": "BGE M3-Embedding: Multi-Lingual, Multi-Functionality, Multi-Granularity Text Embeddings",
+    "authors": ["Jianlv Chen", "Shitao Xiao", "Peitian Zhang"],
+    "year": 2024,
+    "venue": "arXiv",
+    "topics": ["Embedding", "Hybrid Retrieval", "Multilingual Retrieval"],
+    "url": "https://arxiv.org/abs/2402.03216",
+    "abstract": "BGE-M3 supports multilingual, multi-granularity, and hybrid retrieval capabilities in a unified embedding model.",
+    "chunks": [
+      "Modern embedding models increasingly support multilingual and hybrid retrieval settings.",
+      "Multi-granularity representations help retrieve passages and documents at different scales.",
+      "This is a natural upgrade path for a bilingual IR/RAG paper search demo."
+    ]
+  }
+]

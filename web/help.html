@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用说明 - Academic Evidence Finder</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell help-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">网站介绍与使用手册</p>
+          <h1>如何使用 Academic Evidence Finder</h1>
+        </div>
+        <div class="top-actions">
+          <a class="nav-link" href="/">返回检索页</a>
+          <div class="corpus-badge">
+            <span>IR</span>
+            <small>可解释检索系统</small>
+          </div>
+        </div>
+      </header>
+
+      <section class="help-layout">
+        <aside class="help-toc" aria-label="页面目录">
+          <a href="#overview">网站用途</a>
+          <a href="#search-area">检索控制区</a>
+          <a href="#filters">筛选与模式</a>
+          <a href="#trace">查询过程</a>
+          <a href="#results">结果卡片</a>
+          <a href="#detail">详情弹窗</a>
+          <a href="#evaluation">检索评测</a>
+          <a href="#workflow">推荐演示流程</a>
+        </aside>
+
+        <section class="help-content">
+          <section id="overview" class="manual-section">
+            <h2>1. 网站用途</h2>
+            <p>
+              Academic Evidence Finder 是一个面向 IR/RAG 学习场景的论文检索 demo。它不是普通关键词搜索页，而是一个可解释检索工作台：输入研究问题后，系统返回相关论文、证据片段、排序原因、主题标签和相似论文。
+            </p>
+            <p>
+              网站背后的检索流程包括 query expansion、BM25、TF-IDF cosine、字段权重、短语/主题 boost、MMR reranking 和 evidence highlighting。页面上的每个组件都服务于一个目标：让用户知道论文为什么被检索到，以及证据在哪里。
+            </p>
+          </section>
+
+          <section id="search-area" class="manual-section">
+            <h2>2. 检索控制区</h2>
+            <dl class="component-list">
+              <dt>检索问题输入框</dt>
+              <dd>
+                输入自然语言 query。可以输入英文方法名，例如 <code>SPLADE sparse retrieval</code>，也可以输入中文问题，例如 <code>RAG 如何缓解幻觉</code>。中文术语会被系统扩展成英文检索词，用来匹配英文论文。
+              </dd>
+              <dt>检索按钮</dt>
+              <dd>
+                点击后触发 <code>/api/search</code>。系统会重新计算 BM25、Semantic、Field、Phrase、Topic 和 MMR 等信号，并刷新右侧结果列表。
+              </dd>
+              <dt>推荐检索问题</dt>
+              <dd>
+                这些按钮是演示用 query。点击后会自动填入输入框并检索。建议录制 demo 时依次展示“混合检索”“查询扩展”“长上下文证据”“中文 RAG 问题”。
+              </dd>
+            </dl>
+          </section>
+
+          <section id="filters" class="manual-section">
+            <h2>3. 筛选与模式</h2>
+            <dl class="component-list">
+              <dt>检索模式</dt>
+              <dd>
+                <strong>Hybrid 重排序</strong> 是默认模式，会融合 BM25、TF-IDF cosine、字段权重、短语/主题 boost 和 MMR。<strong>仅 BM25</strong> 用来观察关键词精确匹配效果。<strong>仅 Semantic</strong> 用来观察 TF-IDF cosine 的语义近似效果。
+              </dd>
+              <dt>主题筛选</dt>
+              <dd>
+                根据论文 topics 过滤结果，例如 RAG、Dense Retrieval、Sparse Retrieval、Evaluation、Reranking 等。这个筛选不会改变算法，只会缩小候选论文集合。
+              </dd>
+              <dt>年份筛选</dt>
+              <dd>
+                按论文年份过滤结果。适合展示 2024 年 RAG 新方法，如 GraphRAG、RAPTOR、CRAG、Adaptive-RAG 等。
+              </dd>
+              <dt>评测按钮</dt>
+              <dd>
+                触发 <code>/api/evaluate</code>，比较 BM25、Semantic、Hybrid 三种模式的 Precision@5、Recall@10 和 MRR。
+              </dd>
+            </dl>
+          </section>
+
+          <section id="trace" class="manual-section">
+            <h2>4. 左侧查询过程面板</h2>
+            <dl class="component-list">
+              <dt>扩展后的查询</dt>
+              <dd>
+                展示 query expansion 的结果。例如中文“幻觉”会扩展为 hallucination、faithfulness、factuality、grounded、evidence 等英文词。这个区域用于解释系统如何缓解中文 query 与英文论文之间的词汇不匹配。
+              </dd>
+              <dt>匹配结果</dt>
+              <dd>
+                显示当前筛选条件下有多少篇论文进入候选结果。改变主题或年份筛选后，这个数字会相应变化。
+              </dd>
+              <dt>系统流程</dt>
+              <dd>
+                简要展示 pipeline：查询扩展、BM25 + TF-IDF cosine、字段权重与主题 boost、MMR 去冗余重排序。
+              </dd>
+            </dl>
+          </section>
+
+          <section id="results" class="manual-section">
+            <h2>5. 结果卡片逐项解释</h2>
+            <dl class="component-list">
+              <dt>论文标题与排名编号</dt>
+              <dd>
+                标题前的数字表示当前排序位置。标题本身保持论文英文原名，避免翻译造成方法名歧义。
+              </dd>
+              <dt>作者 / 会议 / 年份</dt>
+              <dd>
+                用于快速判断论文来源和时效性。RAG 方向变化很快，年份信息对理解方法演进很重要。
+              </dd>
+              <dt>摘要</dt>
+              <dd>
+                展示论文核心内容概括。摘要用于快速判断论文是否值得继续打开详情。
+              </dd>
+              <dt>证据片段</dt>
+              <dd>
+                系统从 abstract 和 chunks 中选出与 query 最匹配的文本。命中的关键词会被高亮，表示这篇论文具体是在哪些内容上与 query 相关。
+              </dd>
+              <dt>排序原因</dt>
+              <dd>
+                展示 ranking reasons，例如 strong BM25 term match、topic match、phrase match、evidence chunk covers query terms。它解释论文为什么被排在当前名次。
+              </dd>
+              <dt>主题标签</dt>
+              <dd>
+                展示论文所属方向，例如 RAG、Dense Retrieval、Evaluation、Long Context。主题标签既参与 topic boost，也帮助用户理解结果覆盖面。
+              </dd>
+              <dt>相关度百分比</dt>
+              <dd>
+                右侧的大百分比是当前返回结果中的归一化相对分数，不是绝对概率。它用于比较同一 query 下结果之间的相对相关性。
+              </dd>
+              <dt>分数条</dt>
+              <dd>
+                将相关度可视化。分数条越长，说明该论文在当前 query 的综合排序分越高。
+              </dd>
+              <dt>BM25 / Semantic / Field</dt>
+              <dd>
+                BM25 表示关键词匹配强度；Semantic 表示 TF-IDF cosine 相似度；Field 表示 query 是否命中标题、主题、摘要等重要字段。
+              </dd>
+              <dt>查看详情按钮</dt>
+              <dd>
+                打开论文详情弹窗，查看推荐引用证据、相似论文和论文来源链接。
+              </dd>
+            </dl>
+          </section>
+
+          <section id="detail" class="manual-section">
+            <h2>6. 详情弹窗</h2>
+            <dl class="component-list">
+              <dt>论文详情</dt>
+              <dd>
+                展示论文标题、作者、会议、年份、主题和摘要，用于确认该论文是否符合当前研究需求。
+              </dd>
+              <dt>推荐引用证据</dt>
+              <dd>
+                展示可用于设计文档或 demo 讲解的关键片段。它不是自动生成的引用格式，而是可解释证据文本。
+              </dd>
+              <dt>相似论文</dt>
+              <dd>
+                基于论文之间的 TF-IDF cosine 相似度推荐。适合沿着同一主题继续阅读，例如从 DPR 继续看 ANCE、Contriever、BGE 等。
+              </dd>
+              <dt>论文来源页面</dt>
+              <dd>
+                打开论文的 arXiv、ACL Anthology 或其他来源链接。提交作业时不需要打包 PDF，只保留链接和本地元数据即可。
+              </dd>
+            </dl>
+          </section>
+
+          <section id="evaluation" class="manual-section">
+            <h2>7. 检索评测</h2>
+            <p>
+              评测区域用于展示系统不是只做 UI，而是有基本检索实验。点击“评测”后，会看到三种模式的指标：
+            </p>
+            <ul class="manual-list">
+              <li><strong>Precision@5</strong>：前 5 条结果中有多少是相关论文。</li>
+              <li><strong>Recall@10</strong>：前 10 条结果覆盖了多少人工标注相关论文。</li>
+              <li><strong>MRR</strong>：第一个相关结果排得越靠前，分数越高。</li>
+            </ul>
+            <p>
+              演示时可以强调：Hybrid 模式通常比单独 BM25 或 Semantic 更适合本任务，因为它同时利用精确术语、语义近似、字段权重和主题信号。
+            </p>
+          </section>
+
+          <section id="workflow" class="manual-section">
+            <h2>8. 推荐演示流程</h2>
+            <ol class="manual-list">
+              <li>先打开检索页，说明这是一个 IR/RAG 论文检索与证据展示系统。</li>
+              <li>点击“中文 RAG 问题”，展示中文 query 如何扩展成英文检索词。</li>
+              <li>展示结果卡片中的证据片段、排序原因和 BM25 / Semantic / Field 分数。</li>
+              <li>点击一篇论文的“查看详情”，讲推荐引用证据和相似论文。</li>
+              <li>切换到“SPLADE sparse retrieval”或“GraphRAG summarization”，说明扩展语料覆盖经典 IR 和新 RAG 方法。</li>
+              <li>点击“评测”，用指标说明 Hybrid 排序的有效性。</li>
+            </ol>
+          </section>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

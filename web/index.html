@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academic Evidence Finder</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">IR / RAG 论文检索</p>
+          <h1>Academic Evidence Finder</h1>
+        </div>
+        <div class="top-actions">
+          <a class="nav-link" href="/help.html">使用说明</a>
+          <div class="corpus-badge">
+            <span id="paperCount">--</span>
+            <small>篇论文已索引</small>
+          </div>
+        </div>
+      </header>
+
+      <section class="search-studio" aria-label="检索控制区">
+        <div class="query-line">
+          <label class="query-field">
+            <span>检索问题</span>
+            <input id="queryInput" autocomplete="off" />
+          </label>
+          <button id="searchButton" class="primary-button" type="button">检索</button>
+        </div>
+
+        <div class="quick-queries" aria-label="推荐检索问题">
+          <button type="button" data-query="hybrid retrieval bm25 dense retrieval">混合检索</button>
+          <button type="button" data-query="query expansion for sparse retrieval">查询扩展</button>
+          <button type="button" data-query="long context evidence ordering">长上下文证据</button>
+          <button type="button" id="cnQueryButton">中文 RAG 问题</button>
+        </div>
+
+        <div class="filters">
+          <label>
+            检索模式
+            <select id="modeSelect">
+              <option value="hybrid">Hybrid 重排序</option>
+              <option value="bm25">仅 BM25</option>
+              <option value="semantic">仅 Semantic</option>
+            </select>
+          </label>
+          <label>
+            主题
+            <select id="topicSelect">
+              <option value="">全部主题</option>
+            </select>
+          </label>
+          <label>
+            年份
+            <select id="yearSelect">
+              <option value="">全部年份</option>
+            </select>
+          </label>
+          <button id="evaluateButton" class="secondary-button" type="button">评测</button>
+        </div>
+      </section>
+
+      <section class="dashboard">
+        <aside class="side-panel">
+          <section class="panel-block">
+            <h2>查询过程</h2>
+            <dl>
+              <dt>扩展后的查询</dt>
+              <dd id="expandedQuery">-</dd>
+              <dt>匹配结果</dt>
+              <dd id="resultCount">-</dd>
+            </dl>
+          </section>
+          <section class="panel-block">
+            <h2>检索评测</h2>
+            <div id="evaluationBox" class="evaluation-box">
+              <p class="muted">点击“评测”比较 BM25、Semantic 和 Hybrid 三种排序效果。</p>
+            </div>
+          </section>
+          <section class="panel-block">
+            <h2>系统流程</h2>
+            <ol class="pipeline">
+              <li>查询扩展</li>
+              <li>BM25 + TF-IDF cosine</li>
+              <li>字段权重与主题 boost</li>
+              <li>MMR 去冗余重排序</li>
+            </ol>
+          </section>
+        </aside>
+
+        <section class="results-zone">
+          <div class="results-header">
+            <h2>排序结果与证据片段</h2>
+            <p>每条结果都会展示排序原因、证据命中位置，以及 BM25、Semantic、Field 等检索信号的贡献。</p>
+          </div>
+          <section class="results" id="results"></section>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="detailDialog">
+      <article class="detail-card">
+        <button id="closeDialog" class="icon-button" type="button" aria-label="关闭">x</button>
+        <div id="paperDetail"></div>
+      </article>
+    </dialog>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

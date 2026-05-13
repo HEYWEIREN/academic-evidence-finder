@@ -1,0 +1,467 @@
+[
+  {
+    "id": "lewis-2020-rag",
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "authors": ["Patrick Lewis", "Ethan Perez", "Aleksandra Piktus", "Fabio Petroni"],
+    "year": 2020,
+    "venue": "NeurIPS",
+    "topics": ["RAG", "Dense Retrieval", "Question Answering"],
+    "url": "https://arxiv.org/abs/2005.11401",
+    "abstract": "Retrieval-augmented generation combines a parametric sequence-to-sequence model with a non-parametric memory accessed through dense retrieval. The method improves knowledge-intensive tasks by conditioning generation on retrieved passages.",
+    "chunks": [
+      "RAG couples a generator with a retriever so that factual knowledge can be fetched at inference time instead of being stored only in model parameters.",
+      "The approach marginalizes over retrieved documents and improves open-domain question answering and fact verification.",
+      "Retrieval makes generated answers easier to inspect because supporting passages are available alongside the output."
+    ]
+  },
+  {
+    "id": "karpukhin-2020-dpr",
+    "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+    "authors": ["Vladimir Karpukhin", "Barlas Oguz", "Sewon Min", "Patrick Lewis"],
+    "year": 2020,
+    "venue": "EMNLP",
+    "topics": ["Dense Retrieval", "Question Answering", "Embedding"],
+    "url": "https://arxiv.org/abs/2004.04906",
+    "abstract": "Dense Passage Retrieval learns dual encoders for questions and passages, enabling efficient nearest-neighbor search for open-domain question answering.",
+    "chunks": [
+      "DPR replaces sparse lexical matching with dense question and passage embeddings trained from question-answer pairs.",
+      "The retriever can find relevant passages even when the exact query terms do not appear in the document.",
+      "Dense retrieval is a strong first-stage retriever for retrieval-augmented question answering systems."
+    ]
+  },
+  {
+    "id": "robertson-2009-bm25",
+    "title": "The Probabilistic Relevance Framework: BM25 and Beyond",
+    "authors": ["Stephen Robertson", "Hugo Zaragoza"],
+    "year": 2009,
+    "venue": "Foundations and Trends in Information Retrieval",
+    "topics": ["BM25", "Sparse Retrieval", "Ranking"],
+    "url": "https://dl.acm.org/doi/10.1561/1500000019",
+    "abstract": "BM25 is a widely used probabilistic ranking function that scores documents by term frequency, inverse document frequency, and document length normalization.",
+    "chunks": [
+      "BM25 rewards documents that contain query terms while controlling for overly long documents.",
+      "The method is simple, efficient, and remains a strong baseline for first-stage retrieval.",
+      "Sparse retrieval is especially useful for exact terminology, named entities, acronyms, and rare technical terms."
+    ]
+  },
+  {
+    "id": "nogueira-2019-doc2query",
+    "title": "Document Expansion by Query Prediction",
+    "authors": ["Rodrigo Nogueira", "Jimmy Lin"],
+    "year": 2019,
+    "venue": "arXiv",
+    "topics": ["Query Expansion", "Sparse Retrieval", "Ranking"],
+    "url": "https://arxiv.org/abs/1904.08375",
+    "abstract": "Doc2Query expands documents with predicted queries, improving sparse retrieval by bridging vocabulary mismatch between user queries and document text.",
+    "chunks": [
+      "Document expansion adds likely user queries to documents before indexing, improving recall for sparse retrievers.",
+      "The technique addresses vocabulary mismatch without changing the retrieval engine.",
+      "Expansion can complement BM25 and is often used in multi-stage retrieval pipelines."
+    ]
+  },
+  {
+    "id": "nogueira-2020-monot5",
+    "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+    "authors": ["Rodrigo Nogueira", "Zhiying Jiang", "Jimmy Lin"],
+    "year": 2020,
+    "venue": "Findings of EMNLP",
+    "topics": ["Reranking", "Transformer", "Ranking"],
+    "url": "https://arxiv.org/abs/2003.06713",
+    "abstract": "MonoT5 formulates document ranking as a sequence-to-sequence task and uses a pretrained transformer to rerank candidates from a first-stage retriever.",
+    "chunks": [
+      "A reranker evaluates query-document relevance after a fast first-stage retriever produces candidates.",
+      "Transformer rerankers improve ranking quality but are more expensive than sparse retrieval.",
+      "Multi-stage retrieval balances efficiency and effectiveness."
+    ]
+  },
+  {
+    "id": "khattab-2020-colbert",
+    "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+    "authors": ["Omar Khattab", "Matei Zaharia"],
+    "year": 2020,
+    "venue": "SIGIR",
+    "topics": ["Late Interaction", "Dense Retrieval", "Ranking"],
+    "url": "https://arxiv.org/abs/2004.12832",
+    "abstract": "ColBERT uses contextualized token embeddings and late interaction to provide efficient and accurate neural passage search.",
+    "chunks": [
+      "Late interaction keeps token-level representations and compares query tokens with document tokens at search time.",
+      "ColBERT improves retrieval quality while remaining more efficient than full cross-encoder reranking.",
+      "The model is useful when semantic matching needs more detail than a single vector representation."
+    ]
+  },
+  {
+    "id": "izacard-2021-fid",
+    "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+    "authors": ["Gautier Izacard", "Edouard Grave"],
+    "year": 2021,
+    "venue": "EACL",
+    "topics": ["RAG", "Question Answering", "Fusion"],
+    "url": "https://arxiv.org/abs/2007.01282",
+    "abstract": "Fusion-in-Decoder processes multiple retrieved passages independently in the encoder and fuses evidence in the decoder for open-domain question answering.",
+    "chunks": [
+      "Fusion-in-Decoder allows a generator to attend over many retrieved passages during answer generation.",
+      "The architecture highlights the importance of retrieval quality and evidence aggregation.",
+      "Using multiple passages can improve answer coverage for complex questions."
+    ]
+  },
+  {
+    "id": "thakur-2021-beir",
+    "title": "BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+    "authors": ["Nandan Thakur", "Nils Reimers", "Andreas Rücklé", "Abhishek Srivastava"],
+    "year": 2021,
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "topics": ["Evaluation", "Benchmark", "Retrieval"],
+    "url": "https://arxiv.org/abs/2104.08663",
+    "abstract": "BEIR evaluates retrieval models across diverse tasks and domains, exposing generalization gaps in dense retrievers.",
+    "chunks": [
+      "Retrieval systems should be evaluated on heterogeneous benchmarks rather than a single dataset.",
+      "Dense models can perform unevenly in zero-shot settings, while BM25 remains a robust baseline.",
+      "Benchmarks such as BEIR motivate hybrid retrieval and careful evaluation."
+    ]
+  },
+  {
+    "id": "gao-2022-hyde",
+    "title": "Precise Zero-Shot Dense Retrieval without Relevance Labels",
+    "authors": ["Luyu Gao", "Xueguang Ma", "Jimmy Lin", "Jamie Callan"],
+    "year": 2022,
+    "venue": "ACL",
+    "topics": ["Query Expansion", "Dense Retrieval", "Zero-shot"],
+    "url": "https://arxiv.org/abs/2212.10496",
+    "abstract": "HyDE generates a hypothetical document from a query and uses its embedding for zero-shot dense retrieval, improving semantic matching without relevance labels.",
+    "chunks": [
+      "HyDE expands a query into a hypothetical answer document before dense retrieval.",
+      "The generated document can bridge the gap between short queries and long evidence passages.",
+      "The idea is useful for semantic retrieval when labeled training data is unavailable."
+    ]
+  },
+  {
+    "id": "asai-2023-self-rag",
+    "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+    "authors": ["Akari Asai", "Zexuan Zhong", "Danqi Chen", "Hannaneh Hajishirzi"],
+    "year": 2023,
+    "venue": "ICLR",
+    "topics": ["RAG", "Hallucination", "Verification"],
+    "url": "https://arxiv.org/abs/2310.11511",
+    "abstract": "Self-RAG trains a model to adaptively retrieve passages and critique its own generations, improving factuality and relevance.",
+    "chunks": [
+      "Self-RAG retrieves only when needed and uses reflection tokens to critique generated content.",
+      "The system targets hallucination by connecting generation decisions with retrieved evidence.",
+      "Adaptive retrieval can reduce unnecessary retrieval while improving factual support."
+    ]
+  },
+  {
+    "id": "shuster-2021-rag-hallucination",
+    "title": "Retrieval Augmentation Reduces Hallucination in Conversation",
+    "authors": ["Kurt Shuster", "Spencer Poff", "Moya Chen"],
+    "year": 2021,
+    "venue": "EMNLP",
+    "topics": ["RAG", "Hallucination", "Dialogue"],
+    "url": "https://arxiv.org/abs/2104.07567",
+    "abstract": "Retrieval augmentation grounds conversational generation in external knowledge and can reduce unsupported statements.",
+    "chunks": [
+      "Retrieval provides grounding documents that constrain conversational responses.",
+      "Grounded generation is less likely to produce unsupported factual claims.",
+      "Evidence visibility helps users inspect why an answer was produced."
+    ]
+  },
+  {
+    "id": "mallen-2023-knowledge-conflicts",
+    "title": "When Not to Trust Language Models: Investigating Effectiveness of Parametric and Non-Parametric Memories",
+    "authors": ["Alex Mallen", "Akari Asai", "Victor Zhong", "Raj Roberts"],
+    "year": 2023,
+    "venue": "ACL",
+    "topics": ["RAG", "Knowledge Conflict", "Hallucination"],
+    "url": "https://arxiv.org/abs/2212.10511",
+    "abstract": "The paper studies when language models rely on parametric memory versus retrieved knowledge and how knowledge conflicts affect factuality.",
+    "chunks": [
+      "Retrieval can help update knowledge without retraining a language model.",
+      "Knowledge conflicts occur when retrieved evidence and model memory disagree.",
+      "A retrieval system should expose evidence so users can judge factual support."
+    ]
+  },
+  {
+    "id": "lin-2021-pretrained-transformers-ir",
+    "title": "Pretrained Transformers for Text Ranking: BERT and Beyond",
+    "authors": ["Jimmy Lin", "Rodrigo Nogueira", "Andrew Yates"],
+    "year": 2021,
+    "venue": "Synthesis Lectures",
+    "topics": ["Reranking", "Transformer", "Ranking"],
+    "url": "https://arxiv.org/abs/2010.06467",
+    "abstract": "This survey explains how pretrained transformers changed ad hoc retrieval, reranking, and multi-stage ranking architectures.",
+    "chunks": [
+      "Transformer rankers often operate after first-stage retrieval because cross-encoders are computationally expensive.",
+      "A practical search system commonly combines sparse retrieval, dense retrieval, and neural reranking.",
+      "The survey provides context for modern IR pipelines."
+    ]
+  },
+  {
+    "id": "reimers-2019-sbert",
+    "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+    "authors": ["Nils Reimers", "Iryna Gurevych"],
+    "year": 2019,
+    "venue": "EMNLP",
+    "topics": ["Embedding", "Semantic Search", "Dense Retrieval"],
+    "url": "https://arxiv.org/abs/1908.10084",
+    "abstract": "Sentence-BERT produces sentence embeddings suitable for semantic similarity search and clustering.",
+    "chunks": [
+      "Sentence embeddings allow fast semantic search using vector similarity.",
+      "SBERT reduces the cost of comparing many sentence pairs compared with full BERT cross-encoding.",
+      "The method is a common upgrade path for lightweight semantic retrieval systems."
+    ]
+  },
+  {
+    "id": "johnson-2019-faiss",
+    "title": "Billion-scale Similarity Search with GPUs",
+    "authors": ["Jeff Johnson", "Matthijs Douze", "Herve Jegou"],
+    "year": 2019,
+    "venue": "IEEE Transactions on Big Data",
+    "topics": ["Vector Search", "Indexing", "Efficiency"],
+    "url": "https://arxiv.org/abs/1702.08734",
+    "abstract": "FAISS provides efficient similarity search and clustering for dense vectors, including billion-scale vector indexes.",
+    "chunks": [
+      "Vector indexes make dense retrieval practical at large scale.",
+      "Approximate nearest-neighbor search trades a small amount of exactness for major efficiency gains.",
+      "A small course demo can use exact cosine similarity while leaving FAISS as a scalable extension."
+    ]
+  },
+  {
+    "id": "guu-2020-realm",
+    "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+    "authors": ["Kelvin Guu", "Kenton Lee", "Zora Tung", "Panupong Pasupat"],
+    "year": 2020,
+    "venue": "ICML",
+    "topics": ["RAG", "Pretraining", "Dense Retrieval"],
+    "url": "https://arxiv.org/abs/2002.08909",
+    "abstract": "REALM integrates retrieval into language model pretraining so the model can retrieve documents from a large corpus while learning.",
+    "chunks": [
+      "REALM treats retrieval as a latent variable during pretraining.",
+      "The model learns to use external documents for knowledge-intensive predictions.",
+      "Retrieval-augmented pretraining is an early foundation for modern RAG systems."
+    ]
+  },
+  {
+    "id": "borgeaud-2022-retro",
+    "title": "Improving Language Models by Retrieving from Trillions of Tokens",
+    "authors": ["Sebastian Borgeaud", "Arthur Mensch", "Jordan Hoffmann"],
+    "year": 2022,
+    "venue": "ICML",
+    "topics": ["RAG", "Large Language Models", "Scaling"],
+    "url": "https://arxiv.org/abs/2112.04426",
+    "abstract": "RETRO augments language models with retrieval from a massive text database, improving performance with fewer parameters.",
+    "chunks": [
+      "Retrieval can improve language models by providing nearest-neighbor context from a large database.",
+      "External memory changes the scaling tradeoff between model parameters and stored knowledge.",
+      "The work shows retrieval as a practical alternative to storing all knowledge parametrically."
+    ]
+  },
+  {
+    "id": "izacard-2022-atlas",
+    "title": "Few-shot Learning with Retrieval Augmented Language Models",
+    "authors": ["Gautier Izacard", "Patrick Lewis", "Maria Lomeli"],
+    "year": 2022,
+    "venue": "arXiv",
+    "topics": ["RAG", "Few-shot", "Question Answering"],
+    "url": "https://arxiv.org/abs/2208.03299",
+    "abstract": "Atlas combines retrieval and generation for few-shot learning and knowledge-intensive tasks.",
+    "chunks": [
+      "Atlas demonstrates that retrieval can improve few-shot generalization on knowledge-intensive tasks.",
+      "The model retrieves passages and conditions generation on external evidence.",
+      "RAG systems are useful when task knowledge changes faster than model training cycles."
+    ]
+  },
+  {
+    "id": "ram-2023-in-context-rag",
+    "title": "In-Context Retrieval-Augmented Language Models",
+    "authors": ["Ori Ram", "Yoav Levine", "Itay Dalmedigos"],
+    "year": 2023,
+    "venue": "TACL",
+    "topics": ["RAG", "In-context Learning", "Prompting"],
+    "url": "https://arxiv.org/abs/2302.00083",
+    "abstract": "In-context RALM studies how retrieved documents can be inserted into prompts for language model inference.",
+    "chunks": [
+      "Retrieved documents can be placed directly into the model context without updating model weights.",
+      "Prompt-level retrieval makes RAG modular and easy to combine with existing language models.",
+      "The quality and ordering of retrieved passages strongly affects downstream generation."
+    ]
+  },
+  {
+    "id": "wang-2023-query-rewriting",
+    "title": "Query Rewriting for Retrieval-Augmented Large Language Models",
+    "authors": ["Xinyi Wang", "Wanrong Zhu", "Michael Saxon"],
+    "year": 2023,
+    "venue": "arXiv",
+    "topics": ["Query Rewriting", "RAG", "Query Expansion"],
+    "url": "https://arxiv.org/abs/2305.14283",
+    "abstract": "Query rewriting reformulates user questions into retrieval-friendly queries for retrieval-augmented language models.",
+    "chunks": [
+      "Natural language questions often need rewriting before retrieval because search engines prefer explicit terms.",
+      "Query rewriting improves recall by adding missing entities, acronyms, or technical phrases.",
+      "A lightweight demo can map Chinese query terms to English IR terminology."
+    ]
+  },
+  {
+    "id": "yu-2023-generate-rank",
+    "title": "Generate Rather Than Retrieve: Large Language Models are Strong Context Generators",
+    "authors": ["Wenhao Yu", "Hongming Zhang", "Xinya Du"],
+    "year": 2023,
+    "venue": "ICLR Workshop",
+    "topics": ["RAG", "Query Expansion", "Generation"],
+    "url": "https://arxiv.org/abs/2209.10063",
+    "abstract": "The paper explores using generated contexts as an alternative or supplement to retrieved passages.",
+    "chunks": [
+      "Generated context can help answer questions but lacks the same evidence guarantee as retrieved documents.",
+      "Retrieval remains important when traceable sources and citations are required.",
+      "Hybrid systems can combine generated query expansion with evidence retrieval."
+    ]
+  },
+  {
+    "id": "ma-2023-query2doc",
+    "title": "Query2Doc: Query Expansion with Large Language Models",
+    "authors": ["Xueguang Ma", "Luyu Gao", "Jimmy Lin"],
+    "year": 2023,
+    "venue": "EMNLP",
+    "topics": ["Query Expansion", "Sparse Retrieval", "RAG"],
+    "url": "https://arxiv.org/abs/2303.07678",
+    "abstract": "Query2Doc expands short queries into pseudo-documents using large language models, improving sparse retrieval.",
+    "chunks": [
+      "Pseudo-document expansion adds related terms to a short query before running BM25.",
+      "The approach improves recall by making lexical retrieval less brittle.",
+      "Query expansion is a practical component in academic search and RAG pipelines."
+    ]
+  },
+  {
+    "id": "li-2023-prp",
+    "title": "Large Language Models are Effective Text Rankers with Pairwise Ranking Prompting",
+    "authors": ["Dacheng Li", "Rulin Shao", "Anze Xie"],
+    "year": 2023,
+    "venue": "Findings of ACL",
+    "topics": ["Reranking", "Large Language Models", "Ranking"],
+    "url": "https://arxiv.org/abs/2306.17563",
+    "abstract": "Pairwise ranking prompting uses large language models to compare documents for a query and improve ranking quality.",
+    "chunks": [
+      "LLMs can act as rerankers by comparing candidate documents pairwise.",
+      "Pairwise ranking can improve relevance ordering but costs more than first-stage retrieval.",
+      "A course demo can simulate reranking with transparent feature weights rather than calling a large model."
+    ]
+  },
+  {
+    "id": "gao-2023-rag-survey",
+    "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+    "authors": ["Yunfan Gao", "Yun Xiong", "Xinyu Gao"],
+    "year": 2023,
+    "venue": "arXiv",
+    "topics": ["RAG", "Survey", "Large Language Models"],
+    "url": "https://arxiv.org/abs/2312.10997",
+    "abstract": "This survey reviews retrieval-augmented generation components, including indexing, retrieval, generation, augmentation, and evaluation.",
+    "chunks": [
+      "RAG systems contain several stages: indexing, retrieval, augmentation, generation, and evaluation.",
+      "The survey organizes methods by retrieval granularity, retriever type, and generator interaction.",
+      "It is a useful reference for designing an end-to-end academic evidence finder."
+    ]
+  },
+  {
+    "id": "zhao-2024-rag-survey",
+    "title": "Retrieval-Augmented Generation for AI-Generated Content: A Survey",
+    "authors": ["Peng Zhao", "Hailin Zhang", "Qian Gao"],
+    "year": 2024,
+    "venue": "arXiv",
+    "topics": ["RAG", "Survey", "Evaluation"],
+    "url": "https://arxiv.org/abs/2402.19473",
+    "abstract": "The survey discusses RAG applications, retriever design, augmentation methods, and evaluation concerns for AI-generated content.",
+    "chunks": [
+      "RAG evaluation includes retrieval quality, generation faithfulness, citation quality, and user utility.",
+      "Evidence grounding is central for reducing hallucination in generated content.",
+      "System design should expose retrieved evidence instead of hiding it behind a final answer."
+    ]
+  },
+  {
+    "id": "chen-2017-drqa",
+    "title": "Reading Wikipedia to Answer Open-Domain Questions",
+    "authors": ["Danqi Chen", "Adam Fisch", "Jason Weston", "Antoine Bordes"],
+    "year": 2017,
+    "venue": "ACL",
+    "topics": ["Question Answering", "Sparse Retrieval", "Reader"],
+    "url": "https://arxiv.org/abs/1704.00051",
+    "abstract": "DrQA combines document retrieval with a neural reader to answer open-domain questions from Wikipedia.",
+    "chunks": [
+      "Open-domain QA often uses a retriever-reader pipeline.",
+      "A fast retriever narrows the corpus before a reader extracts or generates an answer.",
+      "This architecture anticipates later retrieval-augmented generation systems."
+    ]
+  },
+  {
+    "id": "lee-2019-latent-retrieval",
+    "title": "Latent Retrieval for Weakly Supervised Open Domain Question Answering",
+    "authors": ["Kenton Lee", "Ming-Wei Chang", "Kristina Toutanova"],
+    "year": 2019,
+    "venue": "ACL",
+    "topics": ["Dense Retrieval", "Question Answering", "Weak Supervision"],
+    "url": "https://arxiv.org/abs/1906.00300",
+    "abstract": "The paper learns retrieval for question answering without direct passage supervision, using answer supervision as a weak signal.",
+    "chunks": [
+      "Retrieval can be trained from weak supervision when explicit relevance labels are unavailable.",
+      "Latent retrieval treats relevant documents as hidden variables.",
+      "The approach helped motivate learned retrievers for QA and RAG."
+    ]
+  },
+  {
+    "id": "seo-2019-real-time-qa",
+    "title": "Real-Time Open-Domain Question Answering with Dense-Sparse Phrase Index",
+    "authors": ["Minjoon Seo", "Jinhyuk Lee", "Tom Kwiatkowski"],
+    "year": 2019,
+    "venue": "ACL",
+    "topics": ["Indexing", "Question Answering", "Efficiency"],
+    "url": "https://arxiv.org/abs/1906.05807",
+    "abstract": "Dense-sparse phrase indexing supports efficient open-domain question answering with phrase-level retrieval.",
+    "chunks": [
+      "Index design affects latency and retrieval granularity in QA systems.",
+      "Phrase-level retrieval can support fast extraction-oriented question answering.",
+      "Efficiency considerations matter when moving from a demo to a production retrieval service."
+    ]
+  },
+  {
+    "id": "lazaridou-2022-internet-augmented",
+    "title": "Internet-augmented Language Models through Few-shot Prompting for Open-domain Question Answering",
+    "authors": ["Angeliki Lazaridou", "Elena Gribovskaya", "Wojciech Stokowiec"],
+    "year": 2022,
+    "venue": "arXiv",
+    "topics": ["RAG", "Web Retrieval", "Question Answering"],
+    "url": "https://arxiv.org/abs/2203.05115",
+    "abstract": "Internet-augmented language models retrieve web documents at inference time and use them in prompts for open-domain QA.",
+    "chunks": [
+      "Web retrieval can update model knowledge at inference time.",
+      "Retrieved snippets provide timely context for open-domain questions.",
+      "The method illustrates the value of separating retrieval from generation."
+    ]
+  },
+  {
+    "id": "liu-2023-lost-middle",
+    "title": "Lost in the Middle: How Language Models Use Long Contexts",
+    "authors": ["Nelson F. Liu", "Kevin Lin", "John Hewitt"],
+    "year": 2023,
+    "venue": "TACL",
+    "topics": ["RAG", "Long Context", "Evaluation"],
+    "url": "https://arxiv.org/abs/2307.03172",
+    "abstract": "The study shows that language models often use information less effectively when relevant evidence appears in the middle of long contexts.",
+    "chunks": [
+      "RAG systems should not simply stuff many retrieved chunks into a long prompt.",
+      "Passage ordering and context placement affect whether a model uses evidence.",
+      "Retrieval quality must be paired with thoughtful evidence presentation."
+    ]
+  },
+  {
+    "id": "saad-falcon-2023",
+    "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+    "authors": ["Maya Saad-Falcon", "Omar Khattab", "Christopher Potts"],
+    "year": 2023,
+    "venue": "arXiv",
+    "topics": ["Evaluation", "RAG", "Faithfulness"],
+    "url": "https://arxiv.org/abs/2311.09476",
+    "abstract": "ARES proposes automated evaluation of RAG systems, focusing on context relevance, answer faithfulness, and answer relevance.",
+    "chunks": [
+      "RAG evaluation should consider whether retrieved context is relevant and whether generated answers are faithful.",
+      "Automated judges can reduce evaluation cost but require calibration.",
+      "For a course demo, retrieval metrics such as Precision@k and MRR remain transparent and easy to report."
+    ]
+  }
+]
